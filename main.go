@@ -20,7 +20,7 @@ func main() {
 	var lettersTocolor string
 	var colorCode string
 
-	flag.StringVar(&filename, "filename", "standard", "name for the files")
+	//flag.StringVar(&filename, "filename", "standard", "name for the files")
 	flag.StringVar(&colorflag, "color", "reset", "color for color input")
 	flag.Parse()
 	 argsPassed:= flag.Args()
