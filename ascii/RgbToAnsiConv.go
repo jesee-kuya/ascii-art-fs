@@ -12,6 +12,9 @@ import (
 // where R, G, and B are integers between 0 and 255.
 // It returns a string that represents the ANSI escape sequence.
 func RgbToAnsiConv(colorflag string) (string, error) {
+	if strings.Contains(colorflag, "=") {
+		return "", errors.New(" Usage: go run . [OPTION] [STRING]\n\nEX: go run . --color=<color> <letters to be colored> \"something\"")
+	}
 	// Trim the colorflag of any strings that start with "rgb".
 	colorflag = strings.Trim(colorflag, "rgb")
 

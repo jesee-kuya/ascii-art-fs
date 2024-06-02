@@ -27,7 +27,7 @@ func Color(colorflag string, lettersTocolor string, argsPassed []string, bannerC
 		} else if strings.Contains(colorflag, "#") {
 			r, g, b, err := HexToRgb(colorflag)
 			if err != nil {
-				fmt.Println("Error: Invalid Hex code")
+				fmt.Println(err)
 				return
 			}
 
@@ -37,7 +37,7 @@ func Color(colorflag string, lettersTocolor string, argsPassed []string, bannerC
 			str = fmt.Sprintf("\033[38;2;%v;%v;%vm", rgb.R, rgb.G, rgb.B)
 		} else {
 			if strings.Contains(colorflag, "=") {
-				fmt.Println("Usage: go run . --color=<color> <letters to be colored> \"something\"")
+				fmt.Println("Usage: go run . [OPTION] [STRING]\n\nEX: go run . --color=<color> <letters to be colored> \"something\"")
 			} else {
 				fmt.Printf("The color %v is not yet defined. Try another color.\n", colorflag)
 			}
@@ -57,7 +57,7 @@ func Color(colorflag string, lettersTocolor string, argsPassed []string, bannerC
 		lettersTocolor = argsPassed[0]
 		Art(argsPassed, bannerContent, lettersTocolor, colorCode, 1)
 	} else {
-		fmt.Println("Usage: go run . --color=<color> <letters to be colored> \"something\"")
+		fmt.Println("Usage: go run . [OPTION] [STRING]\n\nEX: go run . --color=<color> <letters to be colored> \"something\"")
 		return
 	}
 }
