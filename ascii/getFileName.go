@@ -10,19 +10,19 @@ import (
 // as a slice of strings and an error if the file is not found or cannot be read.
 func GetFileName(name string) ([]string, error) {
 	if strings.ToLower(name) == "thinkertoy" || strings.ToLower(name) == "thinkertoy.txt" {
-		content, error := Reader("thinkertoy.txt", "\r\n")
+		content, error := Reader("./resources/thinkertoy.txt", "\r\n")
 		if error != nil {
 			return nil, error
 		}
 		return content, error
 	} else if strings.ToLower(name) == "shadow" || strings.ToLower(name) == "shadow.txt" {
-		content, error := Reader("shadow.txt", "\n")
+		content, error := Reader("./resources/shadow.txt", "\n")
 		if error != nil {
 			return nil, error
 		}
 		return content, error
 	} else if strings.ToLower(name) == "standard" || strings.ToLower(name) == "standard.txt" {
-		content, error := Reader("standard.txt", "\n")
+		content, error := Reader("./resources/standard.txt", "\n")
 		if error != nil {
 			return nil, error
 		}
