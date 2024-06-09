@@ -28,6 +28,6 @@ func GetFileName(name string) ([]string, error) {
 		}
 		return content, error
 	} else {
-		return nil, errors.New("the file is not available or missing")
+		return nil, errors.New("Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard")
 	}
 }

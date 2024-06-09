@@ -41,7 +41,7 @@ This project is an ASCII Art Generator that converts input text into ASCII art u
 Run the binary with the required arguments:
 
 ```sh
-./ascii-art-color -filename=<font_file> -color=<color_code> <letters_to_color> "Your text here"
+./ascii-art-color -color=<color_code> <letters_to_color> "Your text here" <file name/font_file>
 ```
 
 ### Parameters
@@ -113,18 +113,24 @@ func Reader(filename string, sepp string) ([]string, error)
 # **Examples**
 ## **Example 1: Basic Usage**
 ```go
-./ascii-art-color -filename=standard.txt "Hello, World!"
+./ascii-art-color "Hello, World!" standard.txt
 ```
 ## **Example 2: Using Color**
 ```go
-./ascii-art-color -filename=standard.txt -color="rgb(255, 0, 0)" "Hello, World!"
+./ascii-art-color -color="rgb(255, 0, 0)" "Hello, World!"  shadow
 ```
 
 ## **Example 3: Coloring Specific Letters**
 ```go
-./ascii-art-color -filename=standard.txt -color="rgb(0, 255, 0)" "HW" "Hello, World!"
+./ascii-art-color -color="#2E8B57" "HW" "Hello, World!" thinkertoy
 ```
 
+## **Example 4: Coloring Specific Letters in a filename**
+### **make sure you escape the name of the bannerfile**
+```go
+./ascii-art-color -color="#FF0000" tk \\thinkertoy
+```
+ 
 # **Contributing**
 We welcome contributions to improve the ASCII Art Generator. If you find a bug or have a feature request, please open an issue. If you would like to contribute code, please fork the repository and submit a pull request.
 
