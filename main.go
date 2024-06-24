@@ -48,6 +48,7 @@ func main() {
 		}
 	} else if len(argsPassed) == 1 {
 		filename = "standard"
+		receive.ArgsPassed = argsPassed[:1]
 	}
 
 	bannerContent, err := ascii.GetFileName(filename)

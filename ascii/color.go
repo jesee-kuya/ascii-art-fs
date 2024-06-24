@@ -60,4 +60,5 @@ func (s *Receiver) Color() {
 		fmt.Println("Usage: go run . [OPTION] [STRING]\n\nEX: go run . --color=<color> <letters to be colored> \"something\"")
 		return
 	}
+	s.Art()
 }
