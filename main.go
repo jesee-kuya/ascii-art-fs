@@ -8,6 +8,8 @@ import (
 	"ascii/ascii"
 )
 
+
+
 // main function is used to read the banner file and print the ascii art
 // based on the arguments passed
 func main() {
@@ -17,12 +19,10 @@ func main() {
 			return
 		}
 	}
+	var receive ascii.Receiver
 	var filename string
-	var colorflag string
-	var lettersTocolor string
-	var colorCode string
 
-	flag.StringVar(&colorflag, "color", "reset", "color for color input")
+	flag.StringVar(&receive.Colorflag, "color", "reset", "color for color input")
 	flag.Parse()
 	argsPassed := flag.Args()
 
@@ -32,7 +32,7 @@ func main() {
 			return
 		}
 		filename = argsPassed[2]
-		argsPassed = argsPassed[:2]
+		receive.ArgsPassed = argsPassed[:2]
 	} else if len(argsPassed) == 2 {
 		if ascii.IsFlagPassed("color") {
 			_, err := ascii.GetFileName(argsPassed[1])
@@ -40,11 +40,11 @@ func main() {
 				filename = "standard"
 			} else {
 				filename = argsPassed[1]
-				argsPassed = argsPassed[:1]
+				receive.ArgsPassed = argsPassed[:1]
 			}
 		} else {
 			filename = argsPassed[1]
-			argsPassed = argsPassed[:1]
+			receive.ArgsPassed = argsPassed[:1]
 		}
 	} else if len(argsPassed) == 1 {
 		filename = "standard"
@@ -55,11 +55,12 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	receive.FileArr = bannerContent
 
 	if ascii.IsFlagPassed("color") {
-		ascii.Color(colorflag, lettersTocolor, argsPassed, bannerContent)
+		receive.Color()
 	} else {
-		colorCode = ""
-		ascii.Art(argsPassed, bannerContent, lettersTocolor, colorCode, 0)
+		receive.ColorCode = ""
+		receive.Art()
 	}
 }
