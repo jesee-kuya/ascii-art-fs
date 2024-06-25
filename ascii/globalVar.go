@@ -29,11 +29,11 @@ type RGB struct {
 }
 
 type Receiver struct {
-	Colorflag string
-	ArgsPassed []string
-	FileArr []string
-	WordsArr []string
-	LettersToColor string
-	ColorCode string
+	Colorflag           string
+	ArgsPassed          []string
+	FileArr             []string
+	WordsArr            []string
+	LettersToColor      string
+	ColorCode           string
 	IndexToStartDisplay int
 }

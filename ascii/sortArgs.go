@@ -1,13 +1,11 @@
 package ascii
 
-import "fmt"
-
-func (receive *Receiver) SortArg(argsPassed []string) {
+func (receive *Receiver) SortArg(argsPassed []string) string {
 	var filename string
+	msg := "Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard"
 	if len(argsPassed) == 3 {
-		if IsFlagPassed("color") {
-			fmt.Println("Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard")
-			return
+		if !IsFlagPassed("color") {
+			return msg
 		}
 		filename = argsPassed[2]
 		receive.ArgsPassed = argsPassed[:2]
@@ -16,6 +14,7 @@ func (receive *Receiver) SortArg(argsPassed []string) {
 			_, err := GetFileName(argsPassed[1])
 			if err != nil {
 				filename = "standard"
+				receive.ArgsPassed = argsPassed[:2]
 			} else {
 				filename = argsPassed[1]
 				receive.ArgsPassed = argsPassed[:1]
@@ -31,8 +30,8 @@ func (receive *Receiver) SortArg(argsPassed []string) {
 
 	bannerContent, err := GetFileName(filename)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return msg
 	}
 	receive.FileArr = bannerContent
+	return ""
 }

@@ -38,5 +38,3 @@ func Ascii(s Receiver) {
 		}
 	}
 }
-
-

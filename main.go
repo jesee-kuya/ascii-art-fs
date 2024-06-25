@@ -21,7 +21,11 @@ func main() {
 	flag.Parse()
 	argsPassed := flag.Args()
 
-	receive.SortArg(argsPassed)
+	msg := receive.SortArg(argsPassed)
+	if msg != "" {
+		fmt.Println(msg)
+		return
+	}
 
 	if ascii.IsFlagPassed("color") {
 		receive.Color()

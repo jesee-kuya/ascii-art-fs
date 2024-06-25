@@ -11,4 +11,3 @@ func (s *Receiver) Art() {
 	}
 	Ascii(*s)
 }
-

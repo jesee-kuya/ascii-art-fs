@@ -14,11 +14,10 @@ func Reader(filename string, sepp string) ([]string, error) {
 		return nil, errors.New("error reading banner file")
 	}
 
-// check if the bannerfile has all the values
+	// check if the bannerfile has all the values
 	content := strings.Split(string(file), sepp)
 	if len(content) != 856 {
 		return nil, errors.New("the banner file content is not correct")
 	}
 	return content, nil
 }
-
