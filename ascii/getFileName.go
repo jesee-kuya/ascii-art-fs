@@ -1,7 +1,7 @@
 package ascii
 
 import (
-	"errors"
+	"fmt"
 	"strings"
 )
 
@@ -28,6 +28,6 @@ func GetFileName(name string) ([]string, error) {
 		}
 		return content, error
 	} else {
-		return nil, errors.New(" Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard")
+		return nil, fmt.Errorf(" Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard")
 	}
 }

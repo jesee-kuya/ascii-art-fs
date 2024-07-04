@@ -27,13 +27,3 @@ type RGB struct {
 	G int
 	B int
 }
-
-type Receiver struct {
-	Colorflag           string
-	ArgsPassed          []string
-	FileArr             []string
-	WordsArr            []string
-	LettersToColor      string
-	ColorCode           string
-	IndexToStartDisplay int
-}
